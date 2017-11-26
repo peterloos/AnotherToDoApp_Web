@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.login-form-div {
+    width: 500px;
+
+    background: #fff;
+
+}
+
+.main_content h3 {
+    text-align: center;
+}
+
+.todo_margin {
+    margin-left: 10px;
+}
+
+.demo-list-item {
+
+    width: 300px;
+    /* width: 70%; */
+    margin: auto;
+}
+
+.mdl-button-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button_within_group {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+button:hover {
+    color: lightsalmon;
+}
