@@ -26,8 +26,8 @@
                     <span class="mdl-layout__title">Another Todo-List Web App</span>
                     <div class="mdl-layout-spacer"></div>
                     <nav class="mdl-navigation">
-                        <a class="mdl-navigation__link" href="#">Sign Up</a>
-                        <a class="mdl-navigation__link" href="#">Sign In</a>
+                        <a id="navLinkSignUp" class="mdl-navigation__link" href="#">Sign Up</a>
+                        <a id="navLinkSignIn" class="mdl-navigation__link" href="#">Sign In</a>
                     </nav>
                 </div>
             </header>
@@ -38,27 +38,40 @@
 
                 <div class="login-form-div mdl-grid mdl-shadow--2dp">
 
-                    <p id="loginError"></p>
+                    <p id="errorMessage"></p>
 
                     <div class="mdl-cell mdl-cell--12-col cell_con">
                         <i class="material-icons margin-left-from-icon">account_circle</i>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+                            <!-- see https://www.w3schools.com/tags/att_input_pattern.asp  -->
+
                             <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="txtEmail">
-                            <label class="mdl-textfield__label" for="sample2">Enter valid Email</label>
+                            <label class="mdl-textfield__label" for="txtEmail">Enter valid Email</label>
                             <span class="mdl-textfield__error">Invalid Email...!</span>
                         </div>
                     </div>
+
+                    <!-- http://www.the-art-of-web.com/javascript/validate-password/    good site to verify indenty of two labels    -->
 
                     <div class="mdl-cell mdl-cell--12-col cell_con">
                         <i class="material-icons margin-left-from-icon">lock</i>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" id="txtPassword">
-                            <label class="mdl-textfield__label" for="sample2">Enter Password</label>
+                            <label class="mdl-textfield__label" for="txtPassword">Enter Password</label>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--12-col cell_con" style="display:none" id="div_repeat_password" >
+                        <i class="material-icons margin-left-from-icon">lock</i>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="txtPasswordRepeated">
+                            <label class="mdl-textfield__label" for="txtPasswordRepeated">Repeat Password</label>
                         </div>
                     </div>
 
                     <div class="mdl-cell mdl-cell--12-col login-btn-con">
-                        <button id="btnSignIn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary btn">Login</button>
+                        <button id="btnAction" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary btn">Login</button>
                     </div>
                 </div>
 

@@ -1,5 +1,5 @@
 /*jshint strict:true */
-/*jshint unused:false*/
+/*jshint unused:false */
 
 /*jslint browser:true */
 /*jslint esnext:true*/
