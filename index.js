@@ -143,5 +143,3 @@ function clearInput() {
     txtPassword.value = "";
     txtPasswordRepeated.value = "";
 }
-
-
