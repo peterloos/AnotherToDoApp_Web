@@ -22,6 +22,7 @@ navLinkSignUp.addEventListener('click', function () {
         btnAction.innerText = "Sign Up";
         divRepeatPassword.style = 'display:block';
         paraError.textContent = "";
+        clearInput();
         console.log("New mode: SignUpMode");
     }
 });
@@ -33,6 +34,7 @@ navLinkSignIn.addEventListener('click', function () {
         btnAction.innerText = "Sign In";
         divRepeatPassword.style = 'display:none';
         paraError.textContent = "";
+        clearInput();
         console.log("New mode: SignInMode");
     }
 });
@@ -51,19 +53,7 @@ btnAction.addEventListener('click', function () {
 
         if (email !== "" && password !== "") {
 
-            let promise = firebase.auth().signInWithEmailAndPassword(email, password);
-
-            promise
-                .then(function (user) {
-                // success
-                console.log("signInWithEmailAndPassword: SUCCESS");
-                console.log("Email: " + user.email);
-                window.location.href = "todo.html";
-            })
-                .catch(function(error) {
-                // error handling
-                paraError.textContent = error.message;
-            });
+            signIn(email, password);
 
         } else {
 
@@ -75,16 +65,21 @@ btnAction.addEventListener('click', function () {
 
         let passwordRepeated = txtPasswordRepeated.value;
 
-        if (password !== passwordRepeated) {
+        if (email === "" || password === ""|| passwordRepeated === "") {
 
-            paraError.textContent = "Passwords are different! Please enter correct credentials!";
-            txtPassword.value = "";
-            txtPasswordRepeated.value = "";
-
+            paraError.textContent = "EMail of Password field empty !";
+            clearInput();
             return;
         }
 
-        console.log('Yeahhhhh - got a new Sign Up client');
+        if (password !== passwordRepeated) {
+
+            paraError.textContent = "Passwords are different! Please enter correct credentials!";
+            clearInput();
+            return;
+        }
+
+        signUp(email, password);
     }
 });
 
@@ -102,5 +97,51 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+// helper functions
+function signIn(email, password) {
+    'use strict';
+
+    let promise = firebase.auth().signInWithEmailAndPassword(email, password);
+
+    promise
+        .then(function (user) {
+        // success
+        console.log("signInWithEmailAndPassword: SUCCESS");
+        console.log("Email: " + user.email);
+        window.location.href = "todo.html";
+    })
+        .catch(function(error) {
+        // error handling
+        console.log("signInWithEmailAndPassword: FAILURE");
+        paraError.textContent = error.message;
+    });
+}
+
+function signUp(email, password) {
+    'use strict';
+
+    let promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+
+    promise
+        .then(function (user) {
+        // success
+        console.log("createUserWithEmailAndPassword: SUCCESS");
+        console.log("Email: " + user.email);
+        window.location.href = "todo.html";
+    })
+        .catch(function(error) {
+        // error handling
+        console.log("createUserWithEmailAndPassword: FAILURE");
+        paraError.textContent = error.message;
+    });
+}
+
+function clearInput() {
+
+    'use strict';
+    txtEmail.value = "";
+    txtPassword.value = "";
+    txtPasswordRepeated.value = "";
+}
 
 
