@@ -17,23 +17,23 @@ function ToDoItem(key, title) {
     };
 }
 
-var MODULE = /** @class */ (function () {
-
-    function ToDoItem(key, title) {
-        'use strict';
-        this.key = key;
-        this.title = title;
-        this.toBeDeleted = false;
-    }
-
-    ToDoItem.myprint = function () {
-         window.console.log("Title_A: " + this.title);
-    };
-
-    ToDoItem.prototype.print = function () {
-         window.console.log("Title_B: " + this.title);
-    };
-
-    return ToDoItem;
-
-}());
+//var MODULE = /** @class */ (function () {
+//
+//    function ToDoItem(key, title) {
+//        'use strict';
+//        this.key = key;
+//        this.title = title;
+//        this.toBeDeleted = false;
+//    }
+//
+//    ToDoItem.myprint = function () {
+//         window.console.log("Title_A: " + this.title);
+//    };
+//
+//    ToDoItem.prototype.print = function () {
+//         window.console.log("Title_B: " + this.title);
+//    };
+//
+//    return ToDoItem;
+//
+//}());

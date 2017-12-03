@@ -34,7 +34,6 @@ var btnAbortDelete = document.getElementById('btnAbortDelete');
 var txtDisplayName = document.getElementById('txtDisplayName');
 var txtEmail = document.getElementById('txtEmail');
 var txtEmailVerified = document.getElementById('txtEmailVerified');
-var txtPhotoUrl = document.getElementById('txtPhotoUrl');
 var txtUid = document.getElementById('txtUid');
 
 // HTML elements - ToDo list
@@ -298,14 +297,6 @@ function initComponents(user) {
     }
 
     txtEmail.value = email;
-    txtEmailVerified.value = (emailVerified === true) ? 'True' : 'False';
-
-    if (photoUrl !== null) {
-        txtPhotoUrl.value = uid;
-    } else {
-        txtPhotoUrl.value = '<no photo url found>';
-    }
-
     txtUid.value = uid;
 }
 
