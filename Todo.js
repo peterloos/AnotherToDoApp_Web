@@ -339,16 +339,16 @@ function showToDoListNormal(list) {
             line = linePrefix + (i+1) + ': ' + list[i].title;
 
         // add a 'material design lite' node to a list dynamically
-        let node = document.createElement('li');                        // create a <li> node
-        node.setAttribute('class', 'mdl-list__item');                   // set an attribute
+        let node = document.createElement('li');         // create a <li> node
+        node.setAttribute('class', 'mdl-list__item');    // set an attribute
 
-        let span = document.createElement('span');                      // create a <span> node
+        let span = document.createElement('span');       // create a <span> node
         span.setAttribute('class', 'todo_margin mdl-list__item-primary-content');
 
-        let textnode = document.createTextNode(line);                   // create a text node
-        node.appendChild(span);                                         // append <span> to <li>
-        span.appendChild(textnode);                                     // append text to <span>
-        listTodos.appendChild(node);                                    // append <li> to <ul>
+        let textnode = document.createTextNode(line);    // create a text node
+        node.appendChild(span);                          // append <span> to <li>
+        span.appendChild(textnode);                      // append text to <span>
+        listTodos.appendChild(node);                     // append <li> to <ul>
     }
 
     componentHandler.upgradeDom();
